@@ -26,7 +26,6 @@ This project is a test automation framework developed for ninjaOne using the fol
 
 -   `chai`: ^4.3.7
 -   `chai-http`: ^4.3.0
--   `lodash`: ^4.17.21
 
 ## Getting Started
 
