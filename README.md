@@ -1,3 +1,5 @@
+![image](https://github.com/andres4715-gif/ninja-API-and-IU-Webdriverio/assets/69942140/91902cbc-0e62-4b0c-9a4e-66f9dec2b6fb)
+
 # NINJA ONE Test Automation Framework
 
 This project is a test automation framework developed for NINJAONE using the following dependencies:
