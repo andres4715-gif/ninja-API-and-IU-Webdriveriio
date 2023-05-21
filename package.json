@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "author": "Andres Rios <andres4715@gmail.com>",
   "description": "WebdriverIO tests with Jasmine",
-  "homepage": "",
+  "homepage": "https://github.com/andres4715-gif/ninja-API-and-IU-Webdriverio.git",
   "type": "module",
   "keywords": [
     "webdriver",
     "webdriverio"
   ],
   "scripts": {
-    "test": "wdio run wdio.sauce.conf.ts",
     "test:local": "wdio run wdio.local.conf.ts"
   },
   "devDependencies": {
