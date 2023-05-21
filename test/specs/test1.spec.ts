@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import ApiCall from "../pageobjects/apiCall.page.js";
+import ServerCall from "../pageobjects/server.page.js";
 import HomePage from "../pageobjects/ninja.home.page.js";
 import ApiResponses from "../helpers/apiResponses.js";
 
@@ -23,7 +23,7 @@ const device = {
 
 describe("Make an API call to retrieve the list of devices and check it on the UI.", () => {
     it("check deviceName on the web page and API response are the same.", async () => {
-        await ApiCall.open();
+        await ServerCall.open();
         console.log(`--- DeviceNames from API: ${systemNames}`);
         console.log(
             `--- DeviceNames from UI: ${await HomePage.checkingDeviceNameDisplayed()}`

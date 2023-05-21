@@ -1,7 +1,7 @@
-class ApiCall {
+class ServerCall {
     open() {
         return browser.url("/");
     }
 }
 
-export default new ApiCall();
+export default new ServerCall();

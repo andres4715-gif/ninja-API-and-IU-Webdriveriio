@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import Page from "./page.js";
 import ApiResponses from "../helpers/apiResponses.js";
+import Utils from "../helpers/utils.js";
 
 const baseUrl: string = "http://localhost:3000";
 const endpoint: string = "/devices/";
@@ -17,6 +18,14 @@ class HomePage extends Page {
      */
     get deviceName() {
         return $$("[class='device-name']");
+    }
+
+    get addDevice() {
+        return $("[class='submitButton']");
+    }
+
+    get deviceComponent() {
+        return $("[class='list-options']");
     }
 
     /**
@@ -61,6 +70,17 @@ class HomePage extends Page {
             expect(await element.isDisplayed()).to.be.true;
             expect(await element.isEnabled()).to.be.true;
         }
+    }
+
+    async clickAddDevice() {
+        await Utils.click(await this.addDevice, "Add device Button");
+    }
+
+    async checkDeviceComponentDisplayedAfterAddDevice() {
+        await Utils.waitForExist(
+            await this.deviceComponent,
+            "Device Component"
+        );
     }
 }
 
