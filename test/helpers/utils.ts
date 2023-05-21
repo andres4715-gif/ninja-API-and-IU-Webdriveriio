@@ -1,4 +1,5 @@
 // You can use this class from any test or page within the framework
+import { expect } from "chai";
 
 class Utils {
     /**
@@ -90,11 +91,25 @@ class Utils {
     }
 
     /**
-    Generates a random number between 100 and 999 (inclusive).
-    @returns {Promise<number>} A promise that resolves to the generated random number.
-    */
+     *Generates a random number between 100 and 999 (inclusive).
+     *@returns {Promise<number>} A promise that resolves to the generated random number.
+     */
     static async generateRandomNumber(): Promise<number> {
         return Math.floor(Math.random() * 900) + 100;
+    }
+
+    /**
+     *Check if the current URL matches the expected URL.
+     *@param {string} url - The expected URL to compare against.
+     *@returns {Promise<void>} - A promise that resolves once the check is complete.
+     *@throws {AssertionError} If the current URL does not match the expected URL.
+     *@example
+     *await checkUrl("http://localhost:3001/devices/add");
+     */
+    static async checkUrl(url: string) {
+        const currentUrl = await browser.getUrl();
+        expect(currentUrl).to.equal(url);
+        console.log(`--- The URL is: ${url}`);
     }
 }
 

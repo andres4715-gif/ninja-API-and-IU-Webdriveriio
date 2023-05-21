@@ -12,6 +12,8 @@ let numberOfIds: number = await ApiResponses.getTheNumberOfIds(
     statusCode
 );
 
+const homePageUrl: string = "http://localhost:3001/";
+
 class HomePage extends Page {
     /**
      * define elements
@@ -77,6 +79,7 @@ class HomePage extends Page {
     }
 
     async checkDeviceComponentDisplayedAfterAddDevice() {
+        await Utils.checkUrl(homePageUrl);
         await Utils.waitForExist(
             await this.deviceComponent,
             "Device Component"

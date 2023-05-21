@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import Page from "./page.js";
 import Utils from "../helpers/utils.js";
 
@@ -30,11 +29,6 @@ class NewDevice extends Page {
     /**
      * define or overwrite page methods
      */
-    async checkAddDeviceUrl() {
-        const currentUrl = await browser.getUrl();
-        expect(currentUrl).to.equal(addDeviceUrl);
-    }
-
     async inputNewSystemName() {
         await Utils.setValue(await this.systemName, device, "System Name");
     }
@@ -57,7 +51,7 @@ class NewDevice extends Page {
     }
 
     async createNewDevice() {
-        await this.checkAddDeviceUrl();
+        await Utils.checkUrl(addDeviceUrl);
         await this.inputNewSystemName();
         await this.chooseTypeOption();
         await this.inputHddCapacity();
