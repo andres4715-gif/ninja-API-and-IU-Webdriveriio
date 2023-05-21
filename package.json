@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "chai": "^4.3.7",
+    "chai-asserttype": "^1.0.5",
     "chai-http": "^4.3.0"
   }
 }

@@ -1,9 +1,13 @@
+import { expect } from "chai";
+import "chai-asserttype";
 import Page from "./page.js";
 import Utils from "../helpers/utils.js";
 
 const device: string = `${await Utils.randomDevice()}-PC`;
+const type: string = "MAC";
 const hddCapacity: number = await Utils.generateRandomNumber();
 const addDeviceUrl: string = "http://localhost:3001/devices/add";
+let iteration: number = 0;
 
 class NewDevice extends Page {
     /**
@@ -26,6 +30,10 @@ class NewDevice extends Page {
         return $("[class='submitButton']");
     }
 
+    get devicesList() {
+        return $$('[class="device-info"]');
+    }
+
     /**
      * define or overwrite page methods
      */
@@ -34,7 +42,7 @@ class NewDevice extends Page {
     }
 
     async chooseTypeOption() {
-        await Utils.dropdown(await this.type, "MAC", "TYPE");
+        await Utils.dropdown(await this.type, type, "TYPE");
     }
 
     async inputHddCapacity() {
@@ -56,6 +64,22 @@ class NewDevice extends Page {
         await this.chooseTypeOption();
         await this.inputHddCapacity();
         await this.clickSaveButton();
+    }
+
+    async checkTheNewDevice() {
+        const elements = this.devicesList;
+        let capacity = hddCapacity.toString();
+
+        const foundElement = await elements.find(async (element) => {
+            const text = await element.getText();
+            return (
+                text.includes(device) &&
+                text.includes(type) &&
+                text.includes(capacity)
+            );
+        });
+
+        expect(foundElement).to.exist;
     }
 }
 
