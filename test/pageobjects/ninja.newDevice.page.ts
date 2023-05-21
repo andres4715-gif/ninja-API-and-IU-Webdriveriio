@@ -72,6 +72,8 @@ class NewDevice extends Page {
 
         const foundElement = await elements.find(async (element) => {
             const text = await element.getText();
+            iteration++;
+            console.log(`--- Obtained Device: ${iteration} \n${text}`);
             return (
                 text.includes(device) &&
                 text.includes(type) &&

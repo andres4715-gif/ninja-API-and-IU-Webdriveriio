@@ -12,6 +12,5 @@ describe("Verify that devices can be created properly using the UI.", () => {
     it("Verify the new device is now visible. Check name, type and capacity are visible.", async () => {
         await HomePage.checkDeviceComponentDisplayedAfterAddDevice();
         await NewDevice.checkTheNewDevice();
-        await NewDevice.checkTheNewDevice();
     });
 });
